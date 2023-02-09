@@ -4,7 +4,6 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export default function Home({ data }: any) {
   const onGoPortfolio = () => Router.push("/portfolio");
-  console.log(data);
 
   return (
     <>
