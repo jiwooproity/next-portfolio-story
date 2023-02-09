@@ -1,5 +1,5 @@
-import Container from "./common/Container";
+import Layout from "./layout/Layout";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 
-export { Container, Navbar, Footer };
+export { Layout, Navbar, Footer };

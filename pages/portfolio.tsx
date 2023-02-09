@@ -1,10 +1,10 @@
-import { Container } from "@/components";
+import { Layout } from "@/components";
 
 const Portfolio = () => {
   return (
-    <Container>
+    <Layout>
       <div className="portfolio_inner-wrapper"></div>
-    </Container>
+    </Layout>
   );
 };
 

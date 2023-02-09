@@ -10,7 +10,6 @@ const Container = ({ children }: ChildrenProps) => {
       <div className="main_container">
         <div className="main_wrapper">{children}</div>
       </div>
-      <Footer />
     </>
   );
 };
