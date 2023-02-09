@@ -13,7 +13,7 @@ export default function Home({ data }: any) {
           <div className="home_title-wrapper">
             <h1 className="home_title">Hi,</h1>
             <h1 className="home_title">
-              I'm <span className="home_emphasize_title">S</span>o Jiwoo
+              I&apos;m <span className="home_emphasize_title">S</span>o Jiwoo
             </h1>
             <h1 className="home_title">Front-End Developer</h1>
             <button className="home_portfolio_button" onClick={onGoPortfolio}>
