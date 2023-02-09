@@ -1,0 +1,33 @@
+.navbar_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_wrapper {
+  width: 1500px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_logo {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar_list {
+  font-size: 15px;
+  line-height: 15px;
+  margin: 0px 20px 0px 0px;
+}
