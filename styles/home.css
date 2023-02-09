@@ -1,0 +1,37 @@
+.home_inner-wrapper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home_title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home_title {
+  font-size: 30px;
+  line-height: 30px;
+
+  margin: 0px 0px 10px 0px;
+}
+
+.home_portfolio_button {
+  font-size: 20px;
+  line-height: 20px;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+  border: none;
+
+  background-color: var(--main-button-color);
+  color: var(--in-text-color);
+
+  cursor: pointer;
+}
