@@ -17,6 +17,12 @@
 
 .portfolio_notion-box {
   width: 100%;
+
+  transition: transform 0.5s ease;
+}
+
+.portfolio_notion-box:hover {
+  transform: scale(1.02);
 }
 
 .portfolio_notion-title {

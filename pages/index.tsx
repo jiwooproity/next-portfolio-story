@@ -14,9 +14,9 @@ export default function Home() {
               I&apos;m <span className="home_emphasize_title">S</span>o Jiwoo
             </h1>
             <h1 className="home_title">Front-End Developer</h1>
-            <button className="home_portfolio_button" onClick={onGoPortfolio}>
+            {/* <button className="home_portfolio_button" onClick={onGoPortfolio}>
               PORTFOLIO
-            </button>
+            </button> */}
           </div>
         </div>
       </Layout>
