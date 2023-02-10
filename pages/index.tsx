@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <>
-      <Layout>
+      <Layout center={true}>
         <div className="home_inner-wrapper">
           <div className="home_title-wrapper">
             <h1 className="home_title">Hi,</h1>
