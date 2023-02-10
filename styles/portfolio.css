@@ -104,31 +104,50 @@
   padding: 5px 10px;
   border-radius: 5px;
 
-  color: white;
+  border: 1px solid rgba(54, 54, 54, 0.5);
+  color: black;
 }
 
 .portfolio_notion-tag.blue {
   background-color: rgb(118, 187, 255);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-tag.orange {
   background-color: rgb(255, 183, 116);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-tag.green {
   background-color: rgb(131, 255, 191);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-tag.purple {
   background-color: rgb(195, 147, 255);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-tag.red {
   background-color: rgb(255, 125, 125);
+  color: white;
+  border: none;
+}
+
+.portfolio_notion-tag.gray {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-tag.yellow {
   background-color: rgb(255, 202, 56);
+  color: white;
+  border: none;
 }
 
 .portfolio_notion-date-box {
