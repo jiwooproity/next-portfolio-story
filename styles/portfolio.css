@@ -16,6 +16,17 @@
   row-gap: 15px;
 }
 
+@media screen and (max-width: 900px) {
+  .portfolio_grid-wrapper {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+  }
+}
+
 .portfolio_notion-label-box {
   display: flex;
   align-items: center;

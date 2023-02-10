@@ -13,3 +13,9 @@
   width: 1500px;
   height: 100%;
 }
+
+@media screen and (max-width: 900px) {
+  .main_wrapper {
+    width: 100%;
+  }
+}

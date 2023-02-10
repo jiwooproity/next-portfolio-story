@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
 
+  padding: 0px 15px;
+
   background-color: rgb(41, 42, 68);
 }
 
@@ -14,6 +16,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  .footer_wrapper {
+    width: 100%;
+  }
 }
 
 .footer_github-text {
