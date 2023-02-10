@@ -6,3 +6,41 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.portfolio_grid-wrapper {
+  width: 1500px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+}
+
+.portfolio_notion-box {
+  width: 100%;
+}
+
+.portfolio_notion-title {
+  font-size: 18px;
+  line-height: 18px;
+
+  padding: 10px 0px;
+}
+
+.portfolio_notion-image {
+  width: 100%;
+}
+
+.portfolio_notion-image .portfolio_notion-thumbnail {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+
+  border-radius: 5px;
+}
+
+.portfolio_notion-description {
+  font-size: 15px;
+  line-height: 15px;
+
+  padding: 10px 0px;
+}
