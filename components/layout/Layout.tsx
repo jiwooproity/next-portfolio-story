@@ -5,9 +5,10 @@ import Navbar from "../common/Navbar";
 
 type LayoutProps = {
   children: React.ReactNode;
+  center: boolean;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, center }: LayoutProps) => {
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
         <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css"></link>
       </Head>
       <Navbar />
-      <Container>{children}</Container>
+      <Container center>{children}</Container>
       <Footer />
     </>
   );
