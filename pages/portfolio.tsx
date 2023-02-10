@@ -83,7 +83,7 @@ const PortfolioBox = (value: any, index: number) => {
 
 const Portfolio = ({ data }: ResponseType) => {
   return (
-    <Layout>
+    <Layout center={false}>
       <div className="portfolio_inner-wrapper">
         <div className="portfolio_grid-wrapper">{data.map(PortfolioBox)}</div>
       </div>
