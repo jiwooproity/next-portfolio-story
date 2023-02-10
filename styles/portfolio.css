@@ -11,7 +11,7 @@
   width: 1500px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 15px;
 }
 
@@ -49,4 +49,40 @@
   line-height: 15px;
 
   padding: 10px 0px;
+}
+
+.portfolio_notion-tag-box {
+  display: flex;
+}
+
+.portfolio_notion-tag {
+  font-size: 15px;
+  line-height: 15px;
+  margin: 10px 10px 10px 0px;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.portfolio_notion-tag.blue {
+  background-color: rgb(213, 229, 245);
+}
+
+.portfolio_notion-tag.orange {
+  background-color: rgb(247, 221, 196);
+}
+
+.portfolio_notion-tag.green {
+  background-color: rgb(218, 245, 211);
+}
+
+.portfolio_notion-tag.purple {
+  background-color: rgb(227, 213, 244);
+}
+
+.portfolio_notion-tag.red {
+  background-color: rgb(234, 179, 179);
+}
+
+.portfolio_notion-tag.yellow {
+  background-color: rgb(249, 234, 193);
 }
