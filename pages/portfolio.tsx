@@ -33,9 +33,11 @@ const PortfolioBox = (value: any, index: number) => {
           <img className="portfolio_notion-thumbnail" src={`${value.thumbnail}`} alt={value.title} />
         </a>
       </div>
-      <h1 className="portfolio_notion-title">{value.title}</h1>
-      <span className="portfolio_notion-description">{value.description}</span>
-      <div className="portfolio_notion-tag-box">{value.tag.map(setTag)}</div>
+      <div className="portfolio_notion-description-box">
+        <h1 className="portfolio_notion-title">{value.title}</h1>
+        <span className="portfolio_notion-description">{value.description}</span>
+        <div className="portfolio_notion-tag-box">{value.tag.map(setTag)}</div>
+      </div>
     </div>
   );
 };
