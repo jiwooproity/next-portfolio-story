@@ -1,5 +1,6 @@
 import { Layout } from "@/components";
 import axios, { AxiosRequestConfig } from "axios";
+import moment from "moment";
 
 const config: AxiosRequestConfig = {
   headers: {
@@ -21,9 +22,27 @@ type ResponseType = {
   }[];
 };
 
+type PortfolioLabelType = {
+  label: string;
+  children: React.ReactNode;
+};
+
+const PortfolioLabel = ({ label, children }: PortfolioLabelType) => {
+  return (
+    <div className="portfolio_notion-label-box">
+      <span className={`portfolio_notion-label ${label}`} />
+      {children}
+    </div>
+  );
+};
+
 const PortfolioBox = (value: any, index: number) => {
-  const setTag = (value: any) => {
-    return <span className={`portfolio_notion-tag ${value.color}`}>{value.name}</span>;
+  const setTag = (value: any, index: number) => {
+    return (
+      <span className={`portfolio_notion-tag ${value.color}`} key={index}>
+        {value.name}
+      </span>
+    );
   };
 
   return (
@@ -34,8 +53,18 @@ const PortfolioBox = (value: any, index: number) => {
         </a>
       </div>
       <div className="portfolio_notion-description-box">
-        <h1 className="portfolio_notion-title">{value.title}</h1>
-        <span className="portfolio_notion-description">{value.description}</span>
+        <PortfolioLabel label="title">
+          <h1 className="portfolio_notion-title">{value.title}</h1>
+        </PortfolioLabel>
+        <PortfolioLabel label="description">
+          <span className="portfolio_notion-description">{value.description}</span>
+        </PortfolioLabel>
+        <PortfolioLabel label="date">
+          <div className="portfolio_notion-date-box">
+            <span className="portfolio_notion-date">{`${value.created} -`}</span>
+            <span className="portfolio_notion-date">{value.ended}</span>
+          </div>
+        </PortfolioLabel>
         <div className="portfolio_notion-tag-box">{value.tag.map(setTag)}</div>
       </div>
     </div>
@@ -61,7 +90,7 @@ export async function getStaticProps() {
       description: properties.Description.rich_text[0].text.content,
       domain: properties.Domain.url,
       created: properties.Date.date.start,
-      ended: properties.Date.date.end,
+      ended: properties.Date.date.end || "개발 중",
       tag: properties.Tag.multi_select,
       thumbnail: properties.Thumbnail.files[0].file.url,
     };
