@@ -18,7 +18,17 @@
 .portfolio_notion-box {
   width: 100%;
 
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  overflow: hidden;
+
   transition: transform 0.5s ease;
+}
+
+.portfolio_notion-description-box {
+  width: 100%;
+
+  padding: 0px 10px;
 }
 
 .portfolio_notion-box:hover {
@@ -26,10 +36,10 @@
 }
 
 .portfolio_notion-title {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 19px;
+  line-height: 19px;
 
-  padding: 10px 0px;
+  padding: 15px 0px 0px;
 }
 
 .portfolio_notion-image {
@@ -40,15 +50,15 @@
   width: 100%;
   display: block;
   object-fit: cover;
-
-  border-radius: 5px;
 }
 
 .portfolio_notion-description {
   font-size: 15px;
   line-height: 15px;
 
-  padding: 10px 0px;
+  padding: 15px 0px;
+
+  display: block;
 }
 
 .portfolio_notion-tag-box {
@@ -58,7 +68,7 @@
 .portfolio_notion-tag {
   font-size: 15px;
   line-height: 15px;
-  margin: 10px 10px 10px 0px;
+  margin: 0px 10px 15px 0px;
   padding: 8px 10px;
   border-radius: 5px;
 }
