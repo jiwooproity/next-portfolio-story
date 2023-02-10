@@ -19,7 +19,7 @@ const Layout = ({ children, center }: LayoutProps) => {
         <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css"></link>
       </Head>
       <Navbar />
-      <Container center>{children}</Container>
+      <Container center={center}>{children}</Container>
       <Footer />
     </>
   );
