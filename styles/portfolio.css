@@ -13,6 +13,39 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 15px;
+  row-gap: 15px;
+}
+
+.portfolio_notion-label-box {
+  display: flex;
+  align-items: center;
+
+  padding: 0px 0px 15px 0px;
+}
+
+.portfolio_notion-label {
+  width: 12px;
+  height: 12px;
+
+  font-size: 12px;
+  line-height: 12px;
+
+  margin: 0px 10px 0px 0px;
+
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM384 80H64C55.16 80 48 87.16 48 96V416C48 424.8 55.16 432 64 432H384C392.8 432 400 424.8 400 416V96C400 87.16 392.8 80 384 80z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.portfolio_notion-label.title {
+  width: 12px;
+  height: 12px;
+
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .portfolio_notion-box {
@@ -25,38 +58,37 @@
   transition: transform 0.5s ease;
 }
 
-.portfolio_notion-description-box {
-  width: 100%;
-
-  padding: 0px 10px;
-}
-
 .portfolio_notion-box:hover {
   transform: scale(1.02);
 }
 
-.portfolio_notion-title {
-  font-size: 19px;
-  line-height: 19px;
+.portfolio_notion-description-box {
+  width: 100%;
+  padding: 10px 10px;
+}
 
-  padding: 15px 0px 0px;
+.portfolio_notion-title {
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .portfolio_notion-image {
   width: 100%;
+  height: 250px;
+
+  position: relative;
 }
 
 .portfolio_notion-image .portfolio_notion-thumbnail {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
 
 .portfolio_notion-description {
-  font-size: 15px;
-  line-height: 15px;
-
-  padding: 15px 0px;
+  font-size: 13px;
+  line-height: 13px;
 
   display: block;
 }
@@ -66,33 +98,46 @@
 }
 
 .portfolio_notion-tag {
-  font-size: 15px;
-  line-height: 15px;
-  margin: 0px 10px 15px 0px;
-  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 12px;
+  margin: 0px 10px 0px 0px;
+  padding: 5px 10px;
   border-radius: 5px;
+
+  color: white;
 }
 
 .portfolio_notion-tag.blue {
-  background-color: rgb(213, 229, 245);
+  background-color: rgb(118, 187, 255);
 }
 
 .portfolio_notion-tag.orange {
-  background-color: rgb(247, 221, 196);
+  background-color: rgb(255, 183, 116);
 }
 
 .portfolio_notion-tag.green {
-  background-color: rgb(218, 245, 211);
+  background-color: rgb(131, 255, 191);
 }
 
 .portfolio_notion-tag.purple {
-  background-color: rgb(227, 213, 244);
+  background-color: rgb(195, 147, 255);
 }
 
 .portfolio_notion-tag.red {
-  background-color: rgb(234, 179, 179);
+  background-color: rgb(255, 125, 125);
 }
 
 .portfolio_notion-tag.yellow {
-  background-color: rgb(249, 234, 193);
+  background-color: rgb(255, 202, 56);
+}
+
+.portfolio_notion-date-box {
+  display: flex;
+}
+
+.portfolio_notion-date {
+  font-size: 12px;
+  line-height: 12px;
+
+  margin: 0px 3px 0px 0px;
 }
