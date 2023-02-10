@@ -25,7 +25,9 @@ const PortfolioBox = (value: any, index: number) => {
   return (
     <div className="portfolio_notion-box" key={index}>
       <div className="portfolio_notion-image">
-        <img className="portfolio_notion-thumbnail" src={`${value.thumbnail}`} alt={value.title} />
+        <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
+          <img className="portfolio_notion-thumbnail" src={`${value.thumbnail}`} alt={value.title} />
+        </a>
       </div>
       <h1 className="portfolio_notion-title">{value.title}</h1>
       <span className="portfolio_notion-description">{value.description}</span>
@@ -34,7 +36,6 @@ const PortfolioBox = (value: any, index: number) => {
 };
 
 const Portfolio = ({ data }: ResponseType) => {
-  console.log(data);
   return (
     <Layout>
       <div className="portfolio_inner-wrapper">
@@ -51,7 +52,7 @@ export async function getStaticProps() {
     return {
       title: properties.Title.title[0].text.content,
       description: properties.Description.rich_text[0].text.content,
-      domain: properties.Domain,
+      domain: properties.Domain.url,
       created: properties.Date.date.start,
       ended: properties.Date.date.end,
       tag: properties.Tag.multi_select,
