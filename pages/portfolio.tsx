@@ -22,6 +22,10 @@ type ResponseType = {
 };
 
 const PortfolioBox = (value: any, index: number) => {
+  const setTag = (value: any) => {
+    return <span className={`portfolio_notion-tag ${value.color}`}>{value.name}</span>;
+  };
+
   return (
     <div className="portfolio_notion-box" key={index}>
       <div className="portfolio_notion-image">
@@ -31,6 +35,7 @@ const PortfolioBox = (value: any, index: number) => {
       </div>
       <h1 className="portfolio_notion-title">{value.title}</h1>
       <span className="portfolio_notion-description">{value.description}</span>
+      <div className="portfolio_notion-tag-box">{value.tag.map(setTag)}</div>
     </div>
   );
 };
