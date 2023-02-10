@@ -71,7 +71,8 @@ const PortfolioBox = (value: any, index: number) => {
         <PortfolioLabel label="date">
           <div className="portfolio_notion-date-box">
             <span className="portfolio_notion-date">{`${value.created} -`}</span>
-            <span className="portfolio_notion-date">{value.ended}</span>
+            <span className="portfolio_notion-date">{value.progress ? "개발 중" : value.ended}</span>
+            <span className="portfolio_notion-date diff">{`+ ${moment(value.ended).diff(moment(value.created), "days")} Days`}</span>
           </div>
         </PortfolioLabel>
         <div className="portfolio_notion-tag-box">{value.tag.map(setTag)}</div>
@@ -99,9 +100,10 @@ export async function getStaticProps() {
       description: properties.Description.rich_text[0].text.content,
       domain: properties.Domain.url,
       created: properties.Date.date.start,
-      ended: properties.Date.date.end || "개발 중",
+      ended: properties.Date.date.end || moment(new Date()).format("YYYY-MM-DD"),
       tag: properties.Tag.multi_select,
       thumbnail: properties.Thumbnail.files[0].file.url,
+      progress: !properties.Date.date.end,
     };
   };
 
