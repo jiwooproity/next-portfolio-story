@@ -1,6 +1,8 @@
 import { Layout } from "@/components";
 import axios, { AxiosRequestConfig } from "axios";
 import moment from "moment";
+import Image from "next/image";
+import { getPlaiceholder } from "plaiceholder";
 
 const config: AxiosRequestConfig = {
   headers: {
@@ -49,7 +51,14 @@ const PortfolioBox = (value: any, index: number) => {
     <div className="portfolio_notion-box" key={index}>
       <div className="portfolio_notion-image">
         <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
-          <img className="portfolio_notion-thumbnail" src={`${value.thumbnail}`} alt={value.title} />
+          <Image
+            fill
+            className="portfolio_notion-thumbnail"
+            src={`${value.thumbnail}`}
+            blurDataURL={`${value.blurDataURL}`}
+            placeholder="blur"
+            alt={value.title}
+          />
         </a>
       </div>
       <div className="portfolio_notion-description-box">
@@ -101,9 +110,16 @@ export async function getStaticProps() {
   const results = response.data.results;
   const data = results.map(getConvertData);
 
+  const reBase = await Promise.all(
+    data.map(async (res: any) => {
+      const { base64 } = await getPlaiceholder(String(res.thumbnail));
+      return { ...res, blurDataURL: base64 };
+    })
+  );
+
   return {
     props: {
-      data: data,
+      data: reBase,
     },
   };
 }
