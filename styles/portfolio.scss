@@ -16,18 +16,7 @@
   row-gap: 25px;
 }
 
-@media screen and (max-width: 1500px) {
-  .portfolio_grid-wrapper {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 25px;
-    row-gap: 25px;
-  }
-}
-
-@media screen and (max-width: 1200) {
+@media screen and (max-width: 1300px) {
   .portfolio_grid-wrapper {
     width: 100%;
 
