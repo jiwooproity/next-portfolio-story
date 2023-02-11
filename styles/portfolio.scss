@@ -81,15 +81,14 @@
   height: 250px;
   border: 10px solid white;
   position: relative;
+}
 
-  &portfolio_notion-thumbnail {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    border: 1px solid rgba(150, 150, 150, 0.1);
-    border-radius: 5px;
-  }
+.portfolio_notion-image .portfolio_notion-thumbnail {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border: 1px solid rgba(150, 150, 150, 0.2);
 }
 
 .portfolio_notion-description {
