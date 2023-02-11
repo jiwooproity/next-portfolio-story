@@ -1,22 +1,10 @@
 // Library
 import moment from "moment";
-import { getPlaiceholder } from "plaiceholder";
-import axios, { AxiosRequestConfig } from "axios";
 
 // Component
 import { Layout, PortfolioBox } from "@/components";
 import { ResponseType } from "@/type/portfolio";
-
-const config: AxiosRequestConfig = {
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.NEXT_NOTION_SECRETE_TOKEN}`,
-    "Notion-Version": "2022-06-28",
-  },
-};
-
-const instance = axios.create(config);
+import { API, CONVERT_IMAGE } from "@/request/API";
 
 const Portfolio = ({ data }: ResponseType) => {
   return (
@@ -33,9 +21,7 @@ const Portfolio = ({ data }: ResponseType) => {
 };
 
 export async function getStaticProps() {
-  const getConvertData = (value: any) => {
-    const properties = value.properties;
-
+  const convertData = ({ properties }: any) => {
     return {
       title: properties.Title.title[0].text.content,
       description: properties.Description.rich_text[0].text.content,
@@ -48,30 +34,25 @@ export async function getStaticProps() {
     };
   };
 
-  const url = `https://api.notion.com/v1/databases/${process.env.NEXT_NOTION_DATABASE_ID}/query`;
-  const response = await instance.post(url, {
-    page_size: 10,
-    sorts: [
-      {
-        property: "Date",
-        direction: "descending",
-      },
-    ],
+  const getImages = ({ thumbnail }: any) => {
+    return String(thumbnail);
+  };
+
+  // 파라미터 작성
+  const params = { page_size: 10, sorts: [{ property: "Date", direction: "descending" }] };
+  // 1: Notion 데이터 호출 / 2: 필요한 데이터 추출
+  const response = await API.getNotionList({ params });
+  const convert = response.map(convertData);
+
+  // Blur 처리를 위한 Base64 Image 변환 ( for Next/Image )
+  const blurDataUrls = await CONVERT_IMAGE.MULTIE({ imageUrls: convert.map(getImages) });
+  const sendRes = convert.map((data: any, index: number) => {
+    return { ...data, blurDataURL: blurDataUrls[index] };
   });
-
-  const results = response.data.results;
-  const data = results.map(getConvertData);
-
-  const reBase = await Promise.all(
-    data.map(async (res: any) => {
-      const { base64 } = await getPlaiceholder(String(res.thumbnail));
-      return { ...res, blurDataURL: base64 };
-    })
-  );
 
   return {
     props: {
-      data: reBase,
+      data: sendRes,
     },
   };
 }
