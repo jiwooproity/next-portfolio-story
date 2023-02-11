@@ -24,7 +24,7 @@ const Portfolio = ({ data }: ResponseType) => {
       <div className="portfolio_inner-wrapper">
         <div className="portfolio_grid-wrapper">
           {data.map((value, index) => (
-            <PortfolioBox value={value} index={index} />
+            <PortfolioBox key={index} value={value} index={index} />
           ))}
         </div>
       </div>
