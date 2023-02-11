@@ -1,3 +1,12 @@
+// Main SCSS 파일
+@import "./home.scss";
+@import "./portfolio.scss";
+
+// Common SCSS 파일
+@import "./common/container.scss";
+@import "./common/footer.scss";
+@import "./common/navbar.scss";
+
 :root,
 :root.light {
   --in-text-color: rgba(255, 255, 255);
