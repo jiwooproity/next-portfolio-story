@@ -49,7 +49,16 @@ export async function getStaticProps() {
   };
 
   const url = `https://api.notion.com/v1/databases/${process.env.NEXT_NOTION_DATABASE_ID}/query`;
-  const response = await instance.post(url, { page_size: 10 });
+  const response = await instance.post(url, {
+    page_size: 10,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
+  });
+
   const results = response.data.results;
   const data = results.map(getConvertData);
 
