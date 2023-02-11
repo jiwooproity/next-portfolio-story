@@ -1,13 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import Method from "./Method";
 
-// type RequestType = {
-//   method: string;
-//   url: string;
-//   query: object;
-//   body: object;
-// };
-
 type getParametersType = {
   url: string;
   query: object;
@@ -25,12 +18,12 @@ const config: AxiosRequestConfig = {
 
 const instance = axios.create(config);
 
-const getRequest = ({ url, query, body }: getParametersType) => {
-  if (query) return;
-  if (body) {
-    const { data }: any = instance.get(url, { data: { ...body } });
+const getRequest = async ({ url, query, body }: getParametersType) => {
+  if (query) {
+    const { data }: any = await instance.get(url, { params: { ...query } });
     return data;
   }
+  if (body) return;
 };
 
 const postRequest = async ({ url, query, body }: getParametersType) => {
@@ -42,12 +35,15 @@ const postRequest = async ({ url, query, body }: getParametersType) => {
 };
 
 const Request = async ({ method, url, query, body }: any) => {
+  let response;
+
   switch (method) {
     case Method.HTTP.GET:
-      return await getRequest({ url, query, body });
+      response = await getRequest({ url, query, body });
+      return response.results;
     case Method.HTTP.POST:
-      const { results } = await postRequest({ url, query, body });
-      return results;
+      response = await postRequest({ url, query, body });
+      return response.results;
     default:
       break;
   }
