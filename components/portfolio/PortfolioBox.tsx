@@ -24,6 +24,7 @@ const PortfolioBox = ({ value, index }: { value: ValueType; index: number }) => 
             blurDataURL={`${value.blurDataURL}`}
             placeholder="blur"
             alt={value.title}
+            loading={"lazy"}
           />
         </a>
       </div>
