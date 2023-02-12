@@ -1,9 +1,9 @@
 import Footer from "./Footer";
 
-type ChildrenProps = {
+interface ChildrenProps {
   children: React.ReactNode;
   center: boolean;
-};
+}
 
 const Container = ({ children, center }: ChildrenProps) => {
   return (

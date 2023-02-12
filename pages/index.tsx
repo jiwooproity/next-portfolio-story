@@ -1,9 +1,6 @@
-import Router from "next/router";
 import Layout from "@/components/layout/Layout";
 
 export default function Home() {
-  const onGoPortfolio = () => Router.push("/portfolio");
-
   return (
     <>
       <Layout center={true}>
