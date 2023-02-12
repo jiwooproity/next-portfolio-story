@@ -17,7 +17,6 @@ const PortfolioBox = ({ value, index }: { value: ValueType; index: number }) => 
     <div className="portfolio_notion-box" key={index}>
       <div className="portfolio_notion-image">
         <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
-          {/* <img className="portfolio_notion-gif" src={value.preview} /> */}
           <Image
             fill
             className="portfolio_notion-thumbnail"
@@ -28,6 +27,11 @@ const PortfolioBox = ({ value, index }: { value: ValueType; index: number }) => 
             quality={35}
           />
         </a>
+        <div className={`portfolio_notion-dark-filter`}>
+          <a href={value.github} className={`portfolio_notion-github-url ${value.background}`} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
       </div>
       <div className="portfolio_notion-description-box">
         <PortfolioLabel label="title" value={value} />
