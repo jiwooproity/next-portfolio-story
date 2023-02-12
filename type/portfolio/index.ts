@@ -1,4 +1,4 @@
-export type ValueType = {
+export interface ValueType {
   title: string;
   domain: string;
   thumbnail: string;
@@ -10,13 +10,13 @@ export type ValueType = {
   color: string;
   tag: any[];
   name: string;
-};
+}
 
-export type ResponseType = {
+export interface ResponseType {
   data: ValueType[];
-};
+}
 
-export type LabelPropsType = {
+export interface LabelPropsType {
   value: ValueType;
   label: string;
-};
+}

@@ -3,10 +3,10 @@ import Container from "../common/Container";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 
-type LayoutProps = {
+interface LayoutProps {
   children: React.ReactNode;
   center: boolean;
-};
+}
 
 const Layout = ({ children, center }: LayoutProps) => {
   return (
