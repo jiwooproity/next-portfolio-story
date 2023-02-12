@@ -1,6 +1,7 @@
 export interface ValueType {
   title: string;
   domain: string;
+  preview: string;
   thumbnail: string;
   blurDataURL: string;
   description: string;
