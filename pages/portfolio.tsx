@@ -20,7 +20,7 @@ const Portfolio = ({ data }: ResponseType) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const convertData = ({ properties }: any) => {
     return {
       title: properties.Title.title[0].text.content,
