@@ -1,8 +1,9 @@
 export interface ValueType {
   title: string;
+  background: string;
   domain: string;
   preview: string;
-  thumbnail: string;
+  // thumbnail: string;
   blurDataURL: string;
   description: string;
   created: string;
@@ -11,6 +12,7 @@ export interface ValueType {
   color: string;
   tag: any[];
   name: string;
+  github: string;
 }
 
 export interface ResponseType {
