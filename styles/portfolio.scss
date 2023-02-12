@@ -110,6 +110,8 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  pointer-events: none;
 }
 
 .portfolio_notion-github-url {
@@ -141,6 +143,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   transition: opacity 0.5s ease;
+
+  pointer-events: all;
 }
 
 .portfolio_notion-description {
