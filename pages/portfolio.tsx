@@ -42,7 +42,7 @@ export async function getStaticProps() {
   };
 
   // 파라미터 작성
-  const params = { page_size: 10, sorts: [{ property: "Date", direction: "descending" }] };
+  const params = { page_size: 15, sorts: [{ property: "Date", direction: "descending" }] };
   // 1: Notion 데이터 호출 / 2: 필요한 데이터 추출
   const response = await API.getNotionList({ params });
   const convert = response.map(convertData);
