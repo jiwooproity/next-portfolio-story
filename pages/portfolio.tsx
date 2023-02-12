@@ -29,7 +29,8 @@ export async function getStaticProps() {
       created: properties.Date.date.start,
       ended: properties.Date.date.end || moment(new Date()).format("YYYY-MM-DD"),
       tag: properties.Tag.multi_select,
-      thumbnail: properties.Thumbnail.files[1] ? properties.Thumbnail.files[1].file.url : properties.Thumbnail.files[0].file.url,
+      preview: properties.Thumbnail.files[1] ? properties.Thumbnail.files[1].file.url : properties.Thumbnail.files[0].file.url,
+      thumbnail: properties.Thumbnail.files[0].file.url,
       blurDataURL: properties.Thumbnail.files[0].file.url,
       progress: !properties.Date.date.end,
     };
