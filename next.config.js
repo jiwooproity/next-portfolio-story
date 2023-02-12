@@ -1,13 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "https://portfolio-story.vercel.app", "s3.us-west-2.amazonaws.com", "*"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "https://portfolio-story.vercel.app",
-      },
-    ],
+    domains: ["www.notion.so", "images.unsplash.com", "s3.us-west-2.amazonaws.com"],
+    format: ["image/png", "image/webp", "image/jpeg", "image/gif"],
   },
   reactStrictMode: true,
 };
