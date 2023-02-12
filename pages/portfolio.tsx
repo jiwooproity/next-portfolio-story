@@ -20,7 +20,7 @@ const Portfolio = ({ data }: ResponseType) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const convertData = ({ properties }: any) => {
     return {
       title: properties.Title.title[0].text.content,
@@ -56,6 +56,7 @@ export async function getServerSideProps() {
     props: {
       data: sendRes,
     },
+    revalidate: 60,
   };
 }
 
