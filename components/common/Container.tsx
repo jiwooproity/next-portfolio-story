@@ -1,5 +1,3 @@
-import Footer from "./Footer";
-
 interface ChildrenProps {
   children: React.ReactNode;
   center: boolean;
