@@ -17,10 +17,11 @@ const PortfolioBox = ({ value, index }: { value: ValueType; index: number }) => 
     <div className="portfolio_notion-box" key={index}>
       <div className="portfolio_notion-image">
         <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
+          {/* <img className="portfolio_notion-gif" src={value.preview} /> */}
           <Image
             fill
             className="portfolio_notion-thumbnail"
-            src={`${value.thumbnail}`}
+            src={`${value.preview}`}
             blurDataURL={`${value.blurDataURL}`}
             placeholder="blur"
             alt={value.title}
