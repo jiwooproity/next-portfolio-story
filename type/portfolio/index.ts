@@ -15,11 +15,11 @@ export interface ValueType {
   github: string;
 }
 
-export interface ResponseType {
+export type ResponseType = {
   data: ValueType[];
-}
+};
 
-export interface LabelPropsType {
+export type LabelPropsType = {
   value: ValueType;
   label: string;
-}
+};
