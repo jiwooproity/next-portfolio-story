@@ -18,7 +18,7 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
         <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
           <Image
             fill
-            className="portfolio-notion-next-image"
+            className={`portfolio-notion-next-image`}
             src={`${value.preview}`}
             blurDataURL={`${value.blurDataURL}`}
             placeholder="blur"
