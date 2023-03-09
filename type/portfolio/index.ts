@@ -10,7 +10,16 @@ export interface ValueType {
   ended: string;
   progress: boolean;
   color: string;
-  tag: any[];
+  tag: {
+    id: string;
+    name: string;
+    color: string;
+  }[];
+  feature: {
+    id: string;
+    name: string;
+    color: string;
+  }[];
   name: string;
   github: string;
 }
