@@ -2,18 +2,18 @@
 import moment from "moment";
 
 // Component
-import { Layout, PortfolioBox, TitleBox } from "@/components";
+import { Layout, PortfolioNewBox, TitleBox } from "@/components";
 import { ResponseType } from "@/type/portfolio";
 import { API, CONVERT_IMAGE } from "@/request/API";
 
 const Portfolio = ({ data }: ResponseType) => {
   return (
     <Layout center={false}>
-      <TitleBox title="포트폴리오 데이터베이스" />
-      <div className="portfolio_inner-wrapper">
-        <div className="portfolio_grid-wrapper">
+      <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} />
+      <div className="portfolio-wrapper">
+        <div className="portfolio-inner-wrapper">
           {data.map((value, index) => (
-            <PortfolioBox key={index} value={value} index={index} />
+            <PortfolioNewBox key={index} value={value} index={index} />
           ))}
         </div>
       </div>
@@ -32,9 +32,7 @@ export async function getStaticProps() {
       created: properties.Date.date.start,
       ended: properties.Date.date.end || moment(new Date()).format("YYYY-MM-DD"),
       tag: properties.Tag.multi_select,
-      preview: properties.Thumbnail.files[1]
-        ? properties.Thumbnail.files[1].file.url
-        : properties.Thumbnail.files[0].file.url,
+      preview: properties.Thumbnail.files[1] ? properties.Thumbnail.files[1].file.url : properties.Thumbnail.files[0].file.url,
       blurDataURL: properties.Thumbnail.files[0].file.url,
       progress: !properties.Date.date.end,
     };
