@@ -15,6 +15,9 @@ const Navbar = () => {
             <li className="navbar_list">
               <Link href="/portfolio">포트폴리오</Link>
             </li>
+            <li className="navbar_list">
+              <Link href="/mystack">스택</Link>
+            </li>
           </ul>
         </nav>
       </div>
