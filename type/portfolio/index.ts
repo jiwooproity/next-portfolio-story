@@ -11,10 +11,12 @@ export interface ValueType {
   progress: boolean;
   color: string;
   tag: {
+    id: string;
     name: string;
     color: string;
   }[];
   feature: {
+    id: string;
     name: string;
     color: string;
   }[];
