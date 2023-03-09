@@ -15,7 +15,7 @@ export interface ValueType {
     name: string;
     color: string;
   }[];
-  feature: {
+  feature?: {
     id: string;
     name: string;
     color: string;
