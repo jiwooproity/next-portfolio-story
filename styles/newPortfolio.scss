@@ -1,0 +1,176 @@
+.portfolio-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 30px 0px 0px 0px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .portfolio-inner-wrapper {
+    width: 1500px;
+  }
+
+  .portfolio-notion-box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 100px;
+
+    .portfolio-notion-image {
+      width: 600px;
+      height: 338px;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+      &:hover {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        .portfolio-notion-image-status {
+          bottom: -20px;
+        }
+      }
+
+      .portfolio-notion-next-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .portfolio-notion-image-status {
+        width: 540px;
+        padding: 20px 8px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 5px;
+
+        .portfolio-notion-image-title {
+          font-size: 20px;
+          line-height: 20px;
+          font-weight: 600;
+          padding: 0px 0px 12px 0px;
+        }
+
+        .portfolio-notion-image-tag-box {
+          display: flex;
+
+          .portfolio-notion-image-tag {
+            font-size: 15px;
+            line-height: 15px;
+            margin: 0px 2px;
+          }
+        }
+
+        transition: bottom 0.2s ease-in-out;
+      }
+
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    .portfolio-notion-status-box {
+      padding: 0px 0px 0px 40px;
+      display: flex;
+      flex-direction: column;
+
+      .portfolio-notion-status-title {
+        font-size: 30px;
+        line-height: 30px;
+        font-weight: 700;
+        padding: 0px 0px 15px 0px;
+      }
+
+      .portfolio-notion-status-description {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 0px 0px 15px 0px;
+      }
+
+      .portfolio-stack-list-box {
+        display: flex;
+
+        .portfolio-stack-icon {
+          width: 50px;
+          height: 50px;
+          margin: 0px 5px 0px 0px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          background-size: 40px 40px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          border-radius: 50%;
+          display: none;
+
+          &.HTML {
+            display: block;
+            background-image: url("./images/html5.png");
+          }
+
+          &.CSS {
+            display: block;
+            background-image: url("./images/css.png");
+          }
+
+          &.SCSS {
+            display: block;
+            background-image: url("./images/scss.png");
+          }
+
+          &.Styled-Components {
+            display: block;
+            background-image: url("./images/styledcomponents.png");
+          }
+
+          &.TypeScript {
+            display: block;
+            background-image: url("./images/typescript.png");
+          }
+
+          &.JavaScript {
+            display: block;
+            background-image: url("./images/javascript.png");
+          }
+
+          &.PHP {
+            display: block;
+            background-image: url("./images/php.png");
+          }
+
+          &.React {
+            display: block;
+            background-image: url("./images/react.png");
+          }
+
+          &.Next {
+            display: block;
+            background-image: url("./images/next.png");
+          }
+
+          &.Svelte {
+            display: block;
+            background-image: url("./images/svelte.png");
+          }
+
+          &.Electron {
+            display: block;
+            background-image: url("./images/electron.png");
+          }
+
+          &.Notion {
+            display: block;
+            background-image: url("./images/notion.png");
+          }
+        }
+      }
+    }
+  }
+}
