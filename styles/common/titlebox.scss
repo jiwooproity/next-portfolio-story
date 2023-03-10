@@ -6,6 +6,9 @@
   align-items: center;
 
   .title-wrapper {
+    display: flex;
+    flex-direction: column;
+
     .title-text {
       font-size: 30px;
       line-height: 30px;
@@ -16,6 +19,29 @@
       font-size: 15px;
       line-height: 15px;
       font-weight: 400;
+    }
+  }
+
+  .title-gitchart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .title-gitchart-commit-status {
+      font-size: 12px;
+      line-height: 12px;
+      padding: 3px 5px;
+      margin: 0px 0px 5px 0px;
+      border-radius: 5px;
+      color: white;
+
+      &.complete {
+        background-color: rgb(139, 213, 139);
+      }
+
+      &.not-complete {
+        background-color: rgb(220, 63, 63);
+      }
     }
   }
 

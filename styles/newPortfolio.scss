@@ -7,6 +7,8 @@
   justify-content: flex-start;
   align-items: center;
 
+  position: relative;
+
   .portfolio-inner-wrapper {
     width: 1500px;
   }
@@ -142,36 +144,36 @@
             cursor: pointer;
             overflow: hidden;
 
+            ::after {
+              content: "Develop";
+              font-size: 4px;
+              line-height: 4px;
+              font-weight: 400;
+              position: absolute;
+              top: 50%;
+              right: -42px;
+              transform: translateY(-50%);
+              color: rgb(29, 58, 29);
+            }
+
+            ::before {
+              content: "Release";
+              font-size: 4px;
+              line-height: 4px;
+              font-weight: 400;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: -41px;
+              color: white;
+            }
+
             &.on-switch {
               background-color: rgb(136, 235, 136);
-
-              ::after {
-                content: "Develop";
-                font-size: 4px;
-                line-height: 4px;
-                font-weight: 400;
-                position: absolute;
-                top: 50%;
-                right: -42px;
-                transform: translateY(-50%);
-                color: rgb(29, 58, 29);
-              }
             }
 
             &.off-switch {
               background-color: rgb(220, 63, 63);
-
-              ::after {
-                content: "Release";
-                font-size: 4px;
-                line-height: 4px;
-                font-weight: 400;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: -41px;
-                color: white;
-              }
             }
 
             .portfolio-notion-switch-button {
@@ -193,6 +195,8 @@
 
               transition: all 0.5s ease-in-out;
             }
+
+            transition: all 0.5s ease-in-out;
           }
         }
       }
@@ -206,83 +210,6 @@
       .portfolio-stack-list-box {
         display: flex;
         padding: 0px 0px 15px 0px;
-
-        .portfolio-stack-icon {
-          width: 50px;
-          height: 50px;
-          margin: 0px 5px 0px 0px;
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-          background-size: 40px 40px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-          border-radius: 50%;
-          display: none;
-
-          &.HTML {
-            display: block;
-            background-image: url("./images/html5.png");
-          }
-
-          &.CSS {
-            display: block;
-            background-image: url("./images/css.png");
-          }
-
-          &.SCSS {
-            display: block;
-            background-image: url("./images/scss.png");
-          }
-
-          &.Styled-Components {
-            display: block;
-            background-image: url("./images/styledcomponents.png");
-          }
-
-          &.TypeScript {
-            display: block;
-            background-image: url("./images/typescript.png");
-          }
-
-          &.JavaScript {
-            display: block;
-            background-image: url("./images/javascript.png");
-          }
-
-          &.PHP {
-            display: block;
-            background-image: url("./images/php.png");
-          }
-
-          &.React {
-            display: block;
-            background-image: url("./images/react.png");
-          }
-
-          &.Next {
-            display: block;
-            background-image: url("./images/next.png");
-          }
-
-          &.Svelte {
-            display: block;
-            background-image: url("./images/svelte.png");
-          }
-
-          &.Electron {
-            display: block;
-            background-image: url("./images/electron.png");
-          }
-
-          &.Three {
-            display: block;
-            background-image: url("./images/threejs.png");
-          }
-
-          &.Notion {
-            display: block;
-            background-image: url("./images/notion.png");
-          }
-        }
       }
 
       .portfolio-feature-box {
@@ -315,5 +242,131 @@
         }
       }
     }
+  }
+}
+
+.portfolio-stack-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -43px;
+  right: -65px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  &.open {
+    height: 22px;
+  }
+
+  .portfolio-stack-menu-button-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .portfolio-stack-menu-button {
+      font-size: 12px;
+      line-height: 12px;
+      padding: 5px 3px;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .portfolio-stack-icon {
+    margin: 0px 0px 0px 0px;
+    box-shadow: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.active {
+      transform: scale(1.1);
+    }
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  z-index: 1;
+}
+
+.portfolio-stack-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0px 5px 0px 0px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 40px 40px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 50%;
+  display: none;
+
+  &.HTML {
+    display: block;
+    background-image: url("./images/html5.png");
+  }
+
+  &.CSS {
+    display: block;
+    background-image: url("./images/css.png");
+  }
+
+  &.SCSS {
+    display: block;
+    background-image: url("./images/scss.png");
+  }
+
+  &.Styled-Components {
+    display: block;
+    background-image: url("./images/styledcomponents.png");
+  }
+
+  &.TypeScript {
+    display: block;
+    background-image: url("./images/typescript.png");
+  }
+
+  &.JavaScript {
+    display: block;
+    background-image: url("./images/javascript.png");
+  }
+
+  &.PHP {
+    display: block;
+    background-image: url("./images/php.png");
+  }
+
+  &.React {
+    display: block;
+    background-image: url("./images/react.png");
+  }
+
+  &.Next {
+    display: block;
+    background-image: url("./images/next.png");
+  }
+
+  &.Svelte {
+    display: block;
+    background-image: url("./images/svelte.png");
+  }
+
+  &.Electron {
+    display: block;
+    background-image: url("./images/electron.png");
+  }
+
+  &.Three {
+    display: block;
+    background-image: url("./images/threejs.png");
+  }
+
+  &.Notion {
+    display: block;
+    background-image: url("./images/notion.png");
   }
 }

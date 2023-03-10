@@ -1,8 +1,8 @@
 import Image from "next/image";
-
-import { TagIF, ValueType } from "@/type/portfolio";
 import { useEffect, useState } from "react";
 import moment from "moment";
+
+import { NotionResponseIF } from "@/type";
 
 /**
  *
@@ -11,7 +11,7 @@ import moment from "moment";
  * @description PortfolioBox 컴포넌트는 노션 데이터베이스를 표기하기 위한 최상위 컴포넌트 입니다.
  * @returns
  */
-const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) => {
+const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: number }) => {
   const [portfolioTags, setPortfolioTags] = useState<string[]>([]);
   const [progressStatus, setProgressStatus] = useState<boolean>(false);
 
@@ -20,7 +20,7 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
     setTimeout(() => {
       setProgressStatus(value.progress);
     }, 100);
-  }, []);
+  }, [value]);
 
   return (
     <div className="portfolio-notion-box">
@@ -46,10 +46,7 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
           {value.title}
           <div className="portfolio-notion-switch-wrapper ">
             <span className="portfolio-notion-develop-status">IN-PROGRESS</span>
-            <div
-              className={`portfolio-notion-develop-switch ${progressStatus ? "on-switch" : "off-switch"}`}
-              title={progressStatus ? "개발 중" : "배포 중"}
-            >
+            <div className={`portfolio-notion-develop-switch ${progressStatus ? "on-switch" : "off-switch"}`} title={progressStatus ? "개발 중" : "배포 중"}>
               <div className={`portfolio-notion-switch-button ${progressStatus ? "on" : "off"}`}></div>
             </div>
           </div>
