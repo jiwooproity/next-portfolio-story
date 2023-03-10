@@ -40,7 +40,7 @@ const Request = async ({ method, url, query, body }: any) => {
   switch (method) {
     case Method.HTTP.GET:
       response = await getRequest({ url, query, body });
-      return response.results;
+      return response;
     case Method.HTTP.POST:
       response = await postRequest({ url, query, body });
       return response.results;

@@ -9,7 +9,7 @@ import { API, CONVERT_IMAGE } from "@/request/API";
 const Portfolio = ({ data }: ResponseType) => {
   return (
     <Layout center={false}>
-      <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} />
+      <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} githubChart={true} />
       <div className="portfolio-wrapper">
         <div className="portfolio-inner-wrapper">
           {data.map((value, index) => (
@@ -33,7 +33,9 @@ export async function getStaticProps() {
       ended: properties.Date.date.end || moment(new Date()).format("YYYY-MM-DD"),
       tag: properties.Tag.multi_select,
       feature: properties.Feature.multi_select,
-      preview: properties.Thumbnail.files[1] ? properties.Thumbnail.files[1].file.url : properties.Thumbnail.files[0].file.url,
+      preview: properties.Thumbnail.files[1]
+        ? properties.Thumbnail.files[1].file.url
+        : properties.Thumbnail.files[0].file.url,
       blurDataURL: properties.Thumbnail.files[0].file.url,
       progress: !properties.Date.date.end,
     };
@@ -44,10 +46,15 @@ export async function getStaticProps() {
   };
 
   // 파라미터 작성
-  const params = { page_size: 15, sorts: [{ property: "Date", direction: "descending" }] };
+  const params_1 = { page_size: 15, sorts: [{ property: "Date", direction: "descending" }] };
+  const params_2 = { y: "2023" };
   // 1: Notion 데이터 호출 / 2: 필요한 데이터 추출
-  const response = await API.getNotionList({ params });
-  const convert = response.map(convertData);
+  const [response_1, response_2] = await Promise.all([
+    API.getNotionList({ params: params_1 }),
+    API.getGithubHistory({ params: params_2 }),
+  ]);
+
+  const convert = response_1.map(convertData);
 
   // Blur 처리를 위한 Base64 Image 변환 ( for Next/Image )
   const blurDataUrls = await CONVERT_IMAGE.MULTIE({ imageUrls: convert.map(getImages) });

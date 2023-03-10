@@ -38,6 +38,7 @@
         display: block;
         object-fit: cover;
         border-radius: 8px;
+        border: 1px solid rgba(54, 54, 54, 0.1);
       }
 
       .portfolio-notion-image-status {
@@ -86,15 +87,31 @@
       position: relative;
 
       .portfolio-notion-status-date-box {
-        padding: 5px;
+        padding: 1px 5px 4px 5px;
         position: absolute;
         bottom: 0;
-        left: 40px;
+        right: 0px;
+        border: 1px solid rgba(54, 54, 54, 0.5);
+        border-radius: 5px;
 
         .portfolio-notion-status-date {
           font-size: 12px;
           line-height: 12px;
+          padding: 0px 5px;
+
+          transition: color 0.2s ease-in-out;
         }
+
+        &:hover {
+          background-color: black;
+
+          .portfolio-notion-status-date {
+            color: white;
+          }
+        }
+
+        transition: background-color 0.2s ease-in-out;
+        cursor: pointer;
       }
 
       .portfolio-notion-status-title {
