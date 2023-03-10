@@ -11,6 +11,13 @@ export const API = {
       body: { ...params },
     });
   },
+  getGithubHistory: ({ params }: any) => {
+    return Request({
+      method: Method.HTTP.GET,
+      url: URL.PATH.getGithubHistory,
+      query: params,
+    });
+  },
 };
 
 export const CONVERT_IMAGE = {
