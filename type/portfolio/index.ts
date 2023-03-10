@@ -32,6 +32,7 @@ export interface TagIF {
 
 export type ResponseType = {
   data: ValueType[];
+  gitTotal: any;
 };
 
 export type LabelPropsType = {

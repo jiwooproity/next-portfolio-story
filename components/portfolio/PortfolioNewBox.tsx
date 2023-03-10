@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { TagIF, ValueType } from "@/type/portfolio";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 /**
  *
@@ -15,12 +16,10 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
   const [progressStatus, setProgressStatus] = useState<boolean>(false);
 
   useEffect(() => {
-    const tagsName = value.tag.map((stack) => stack.name);
-    setPortfolioTags(tagsName);
-
+    setPortfolioTags(value.tag.map((stack) => stack.name));
     setTimeout(() => {
       setProgressStatus(value.progress);
-    }, 500);
+    }, 100);
   }, []);
 
   return (
@@ -57,8 +56,8 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
         </span>
         <span className="portfolio-notion-status-description">{value.description}</span>
         <div className="portfolio-notion-status-date-box">
-          <span className="portfolio-notion-status-date">
-            {`${value.created} ~ ${progressStatus ? "개발 중" : value.ended}`}
+          <span className="portfolio-notion-status-date" title={`${value.created} ~ ${value.ended}`}>
+            {`+ ${moment(value.ended).diff(moment(value.created), "days")} Days`}
           </span>
         </div>
         <div className="portfolio-stack-list-box">
