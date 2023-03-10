@@ -1,7 +1,7 @@
-import { ValueType } from "@/type/portfolio";
+import { TagIF, ValueType } from "@/type/portfolio";
 
 const PortfolioTag = ({ value }: { value: ValueType }) => {
-  const createTagList = (value: ValueType, index: number) => {
+  const createTagList = (value: TagIF, index: number) => {
     return (
       <span className={`portfolio_notion-tag ${value.color}`} key={index}>
         {value.name}
