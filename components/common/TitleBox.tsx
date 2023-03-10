@@ -1,5 +1,4 @@
 import { GitHubResponseIF } from "@/type";
-import { Dispatch, SetStateAction } from "react";
 
 interface TitleIF {
   title: string | number;
