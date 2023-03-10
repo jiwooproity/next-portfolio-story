@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { ValueType } from "@/type/portfolio";
+import { TagIF, ValueType } from "@/type/portfolio";
+import { useEffect, useState } from "react";
 
 /**
  *
@@ -10,7 +11,17 @@ import { ValueType } from "@/type/portfolio";
  * @returns
  */
 const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) => {
-  const portfolioTag = value.tag.map((stack) => stack.name);
+  const [portfolioTags, setPortfolioTags] = useState<string[]>([]);
+  const [progressStatus, setProgressStatus] = useState<boolean>(false);
+
+  useEffect(() => {
+    const tagsName = value.tag.map((stack) => stack.name);
+    setPortfolioTags(tagsName);
+
+    setTimeout(() => {
+      setProgressStatus(value.progress);
+    }, 500);
+  }, []);
 
   return (
     <div className="portfolio-notion-box">
@@ -28,7 +39,7 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
         </a>
         <div className="portfolio-notion-image-status">
           <div className="portfolio-notion-image-title">{value.title}</div>
-          <div className="portfolio-notion-image-tag-box">{portfolioTag.join(", ")}</div>
+          <div className="portfolio-notion-image-tag-box">{portfolioTags.join(", ")}</div>
         </div>
       </div>
       <div className="portfolio-notion-status-box">
@@ -37,17 +48,19 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
           <div className="portfolio-notion-switch-wrapper ">
             <span className="portfolio-notion-develop-status">IN-PROGRESS</span>
             <div
-              className={`portfolio-notion-develop-switch ${value.progress ? "on" : "off"}`}
-              title={value.progress ? "개발 중" : "배포 중"}
+              className={`portfolio-notion-develop-switch ${progressStatus ? "on-switch" : "off-switch"}`}
+              title={progressStatus ? "개발 중" : "배포 중"}
             >
-              <div className={`portfolio-notion-switch-button ${value.progress ? "on" : "off"}`}></div>
+              <div className={`portfolio-notion-switch-button ${progressStatus ? "on" : "off"}`}></div>
             </div>
           </div>
         </span>
         <span className="portfolio-notion-status-description">{value.description}</span>
-        <span className="portfolio-notion-status-date">{`${value.created} ~ ${
-          value.progress ? "개발 중" : value.ended
-        }`}</span>
+        <div className="portfolio-notion-status-date-box">
+          <span className="portfolio-notion-status-date">
+            {`${value.created} ~ ${progressStatus ? "개발 중" : value.ended}`}
+          </span>
+        </div>
         <div className="portfolio-stack-list-box">
           {value.tag.map((stack, index) => (
             <div key={index} className={`portfolio-stack-icon ${stack.name}`}></div>

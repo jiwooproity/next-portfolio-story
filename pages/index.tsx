@@ -6,8 +6,6 @@ export default function Home() {
   const [lineIndex, setLineIndex] = useState<number>(0);
   const typingText: string[] = ["Hi,", "I'm", "S", "o Jiwoo", "Front-End Developer"];
 
-  const getGitHubHistory = () => {};
-
   useEffect(() => {
     let arrIndex = 0;
     let textIndex = 0;
