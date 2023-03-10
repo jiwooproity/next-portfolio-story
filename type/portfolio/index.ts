@@ -10,10 +10,24 @@ export interface ValueType {
   ended: string;
   progress: boolean;
   color: string;
-  tag: any[];
-  feature: any[];
+  tag: {
+    id: string;
+    name: string;
+    color: string;
+  }[];
+  feature: {
+    id: string;
+    name: string;
+    color: string;
+  }[];
   name: string;
   github: string;
+}
+
+export interface TagIF {
+  id: string;
+  name: string;
+  color: string;
 }
 
 export type ResponseType = {
