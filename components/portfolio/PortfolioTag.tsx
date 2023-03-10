@@ -1,4 +1,4 @@
-import { TagIF, ValueType } from "@/type/portfolio";
+import { TagIF, ValueType } from "@/type/portfolio/portfolioInterface";
 
 const PortfolioTag = ({ value }: { value: ValueType }) => {
   const createTagList = (value: TagIF, index: number) => {

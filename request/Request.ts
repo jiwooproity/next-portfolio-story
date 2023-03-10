@@ -1,11 +1,22 @@
 import axios, { AxiosRequestConfig } from "axios";
 import Method from "./Method";
+import URL from "./URL";
 
-type getParametersType = {
+interface HttpRequestIF {
   url: string;
-  query: object;
-  body: object;
-};
+  method: string;
+  params?: any;
+  data?: any;
+}
+
+interface RequestIF {
+  url: string;
+}
+
+interface AxiosRequestIF extends RequestIF {
+  params?: any;
+  data?: any;
+}
 
 const config: AxiosRequestConfig = {
   headers: {
@@ -16,37 +27,44 @@ const config: AxiosRequestConfig = {
   },
 };
 
-const instance = axios.create(config);
+const notionInstance = axios.create({
+  headers: { ...config.headers },
+});
 
-const getRequest = async ({ url, query, body }: getParametersType) => {
-  if (query) {
-    const { data }: any = await instance.get(url, { params: { ...query } });
-    return data;
-  }
-  if (body) return;
+const defaultInstance = axios.create({
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+const getAxios = ({ url, params }: AxiosRequestIF) => {
+  return defaultInstance.get(url, { params });
 };
 
-const postRequest = async ({ url, query, body }: getParametersType) => {
-  if (query) return;
-  if (body) {
-    const { data }: any = await instance.post(url, { ...body });
-    return data;
+const postAxios = async ({ url, params, data }: AxiosRequestIF) => {
+  if (url === URL.PATH.getNotionList) {
+    return await notionInstance.post(url, { ...data });
   }
 };
 
-const Request = async ({ method, url, query, body }: any) => {
-  let response;
+const Request = async ({ url, method, params, data }: HttpRequestIF) => {
+  let response: any = "";
 
   switch (method) {
     case Method.HTTP.GET:
-      response = await getRequest({ url, query, body });
-      return response;
+      response = await getAxios({ url, params });
+      break;
     case Method.HTTP.POST:
-      response = await postRequest({ url, query, body });
-      return response.results;
+      response = await postAxios({ url, params, data });
+      break;
     default:
       break;
   }
+
+  return {
+    data: response.data,
+    status: response.status,
+  };
 };
 
 export default Request;

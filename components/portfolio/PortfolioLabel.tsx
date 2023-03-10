@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { LabelPropsType } from "@/type/portfolio";
+import { LabelPropsType } from "@/type/portfolio/portfolioInterface";
 
 const PortfolioLabel = ({ value, label }: LabelPropsType) => {
   const getContent = (label: string) => {

@@ -1,21 +1,23 @@
-import { getPlaiceholder } from "plaiceholder";
 import Method from "./Method";
 import Request from "./Request";
 import URL from "./URL";
 
+import { getPlaiceholder } from "plaiceholder";
+import { RequestNotionListIF } from "@/type";
+
 export const API = {
-  getNotionList: ({ params }: any) => {
+  getNotionList: ({ data }: { data: RequestNotionListIF }) => {
     return Request({
       method: Method.HTTP.POST,
       url: URL.PATH.getNotionList,
-      body: { ...params },
+      data: data,
     });
   },
   getGithubHistory: ({ params }: any) => {
     return Request({
       method: Method.HTTP.GET,
       url: URL.PATH.getGithubHistory,
-      query: params,
+      params: params,
     });
   },
 };

@@ -3,7 +3,7 @@ import Image from "next/image";
 import PortfolioLabel from "./PortfolioLabel";
 import PortfolioTag from "./PortfolioTag";
 
-import { ValueType } from "@/type/portfolio";
+import { ValueType } from "@/type/portfolio/portfolioInterface";
 
 /**
  *
