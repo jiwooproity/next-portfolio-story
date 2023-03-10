@@ -41,12 +41,15 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
         </div>
         <div className="portfolio-feature-box">
           <h2 className="portfolio-feature-title">Feature</h2>
-          {value.feature &&
+          {value.feature.length ? (
             value.feature.map((ft, index) => (
               <span key={index} className="portfolio-feature-tag">
-                {ft.name}
+                {`+ ${ft.name}`}
               </span>
-            ))}
+            ))
+          ) : (
+            <span className="portfolio-feature-tag">{"- NONE"}</span>
+          )}
         </div>
       </div>
     </div>
