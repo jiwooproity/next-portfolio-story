@@ -43,7 +43,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
 
   useEffect(() => {
     setFilterData(data);
-  }, []);
+  }, [data]);
 
   return (
     <Layout center={false}>
