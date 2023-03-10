@@ -32,8 +32,22 @@ const PortfolioNewBox = ({ value, index }: { value: ValueType; index: number }) 
         </div>
       </div>
       <div className="portfolio-notion-status-box">
-        <span className="portfolio-notion-status-title">{value.title}</span>
+        <span className="portfolio-notion-status-title">
+          {value.title}
+          <div className="portfolio-notion-switch-wrapper ">
+            <span className="portfolio-notion-develop-status">IN-PROGRESS</span>
+            <div
+              className={`portfolio-notion-develop-switch ${value.progress ? "on" : "off"}`}
+              title={value.progress ? "개발 중" : "배포 중"}
+            >
+              <div className={`portfolio-notion-switch-button ${value.progress ? "on" : "off"}`}></div>
+            </div>
+          </div>
+        </span>
         <span className="portfolio-notion-status-description">{value.description}</span>
+        <span className="portfolio-notion-status-date">{`${value.created} ~ ${
+          value.progress ? "개발 중" : value.ended
+        }`}</span>
         <div className="portfolio-stack-list-box">
           {value.tag.map((stack, index) => (
             <div key={index} className={`portfolio-stack-icon ${stack.name}`}></div>
