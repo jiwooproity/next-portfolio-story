@@ -1,0 +1,74 @@
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradation-container {
+  color: #fff;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: AnimationName 15s ease infinite;
+  width: 100%;
+  height: 100%;
+  top: 35%;
+  padding: 0px 20px;
+  background: linear-gradient(137deg, #fff6b7, #f77c99, #6578f2, #c2ffd8);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 16s ease infinite;
+  -moz-animation: AnimationName 16s ease infinite;
+  -o-animation: AnimationName 16s ease infinite;
+  animation: AnimationName 16s ease infinite;
+
+  .title-box {
+    .title-wrapper {
+      .title-text {
+        color: white;
+      }
+
+      .title-subtitle {
+        color: white;
+      }
+    }
+  }
+}

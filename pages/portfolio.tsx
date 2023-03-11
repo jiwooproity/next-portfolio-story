@@ -47,12 +47,14 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
 
   return (
     <Layout center={false}>
-      <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} githubChart={true} todayGit={todayGit} />
+      <div className="gradation-container">
+        <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} githubChart={true} todayGit={todayGit} />
+      </div>
       <div className="portfolio-wrapper">
         <div className={`portfolio-stack-flex-wrapper ${filterShow ? "open" : ""}`}>
           <div className="portfolio-stack-menu-button-box">
             <button className="portfolio-stack-menu-button" onClick={onShow}>
-              Filter
+              필터
             </button>
           </div>
           <FilterBox filterList={filterList} filterTarget={filterTarget} onFilter={onFilter} />
