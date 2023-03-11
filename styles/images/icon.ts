@@ -1,0 +1,17 @@
+export const icons = [
+  "HTML",
+  "CSS",
+  "SCSS",
+  "Styled-Components",
+  "JavaScript",
+  "Node",
+  "TypeScript",
+  "React",
+  "Electron",
+  "Next",
+  "Svelte",
+  "Three",
+  "Notion",
+  "Discord",
+  "PHP",
+];
