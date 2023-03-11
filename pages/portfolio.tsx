@@ -104,6 +104,8 @@ export async function getStaticProps() {
 
   // Notion 데이터베이스 값 추출
   const convert = notion.results.map(convertData);
+  console.log(convert);
+
   // 금일 깃 커밋 여부 확인
   const convertGit = github.contributions.find(getTodayCommitStatus);
 
