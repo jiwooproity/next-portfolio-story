@@ -28,11 +28,11 @@
     align-items: flex-end;
 
     .title-gitchart-commit-status {
-      font-size: 12px;
-      line-height: 12px;
-      padding: 3px 5px;
+      font-size: 8px;
+      line-height: 8px;
+      font-weight: 400;
+      padding: 5px 5px;
       margin: 0px 0px 5px 0px;
-      border-radius: 5px;
       color: white;
 
       &.complete {
