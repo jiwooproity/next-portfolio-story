@@ -20,7 +20,7 @@ const FilterBox: Function = (props: FilterBoxIF): JSX.Element[] => {
   return icons.map((target, index) => (
     <div
       key={index}
-      className={`portfolio-stack-icon ${target} ${target === filterTarget ? "active" : ""}`}
+      className={`portfolio-stack-icon ${target.replace(".js", "")} ${target === filterTarget ? "active" : ""}`}
       onClick={() => onFilter(target)}
       title={target}
     ></div>
