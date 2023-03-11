@@ -70,7 +70,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const convertData = ({ properties, cover }: any) => {
     return {
       title: properties.Title.title[0].text.content,
@@ -101,6 +101,7 @@ export async function getStaticProps() {
   const params: RequestGithubIF = { y: "2023" };
   // 1: Notion 데이터 호출 / 2: GitHub 데이터 호출
   const [{ data: notion }, { data: github }] = await Promise.all([API.getNotionList({ data }), API.getGithubHistory({ params })]);
+
   // Notion 데이터베이스 값 추출
   const convert = notion.results.map(convertData);
   // 금일 깃 커밋 여부 확인
@@ -117,7 +118,7 @@ export async function getStaticProps() {
       data: sendRes,
       todayGit: convertGit,
     },
-    revalidate: 1,
+    // revalidate: 1,
   };
 }
 
