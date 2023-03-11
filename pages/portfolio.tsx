@@ -70,7 +70,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const convertData = ({ properties, cover }: any) => {
     return {
       title: properties.Title.title[0].text.content,
@@ -118,7 +118,7 @@ export async function getServerSideProps() {
       data: sendRes,
       todayGit: convertGit,
     },
-    // revalidate: 1,
+    revalidate: 1,
   };
 }
 
