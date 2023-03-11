@@ -7,6 +7,20 @@ interface TitleIF {
   todayGit: GitHubResponseIF;
 }
 
+const GitChart: Function = ({ todayGit }: { todayGit: GitHubResponseIF }): JSX.Element => {
+  const { count } = todayGit;
+
+  return (
+    <div className="title-gitchart-wrapper">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <div className="title-gitchart-image-wrapper">
+        <img src="https://ghchart.rshah.org/219138/jiwooproity" alt="" />
+        <span className={`title-gitchart-commit-status ${count > 0 ? "complete" : "not-complete"}`}>{`1일 1커밋 ${count > 0 ? "완료" : "미완료"}`}</span>
+      </div>
+    </div>
+  );
+};
+
 const TitleBox = ({ title, description, githubChart, todayGit }: TitleIF) => {
   return (
     <div className="title-box">
@@ -14,17 +28,7 @@ const TitleBox = ({ title, description, githubChart, todayGit }: TitleIF) => {
         <h1 className="title-text">{title}</h1>
         <span className="title-subtitle">{description}</span>
       </div>
-      <div className="title-gitchart-wrapper">
-        {githubChart && (
-          <>
-            <span className={`title-gitchart-commit-status ${todayGit.count > 0 ? "complete" : "not-complete"}`}>{`1일 1커밋 ${
-              todayGit.count > 0 ? "완료" : "미완료"
-            }`}</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://ghchart.rshah.org/219138/jiwooproity" alt="" />
-          </>
-        )}
-      </div>
+      {githubChart && <GitChart todayGit={todayGit} />}
     </div>
   );
 };
