@@ -6,16 +6,18 @@ import moment from "moment";
 import { API, CONVERT_IMAGE } from "@/request/API";
 import { Layout, PortfolioNewBox, TitleBox } from "@/components";
 import { GitHubResponseIF, NotionResponseIF, RequestGithubIF, RequestNotionListIF } from "@/type";
+import { icons } from "@/styles/images/icon";
 
 interface FilterBoxIF {
-  filterList: string[];
+  icons: string[];
   filterTarget: string;
   onFilter: any;
 }
 
 const FilterBox: Function = (props: FilterBoxIF): JSX.Element[] => {
-  const { filterList, filterTarget, onFilter } = props;
-  return filterList.map((target, index) => (
+  const { icons, filterTarget, onFilter } = props;
+
+  return icons.map((target, index) => (
     <div
       key={index}
       className={`portfolio-stack-icon ${target} ${target === filterTarget ? "active" : ""}`}
@@ -29,7 +31,6 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
   const [filterData, setFilterData] = useState<NotionResponseIF[]>([]);
   const [filterTarget, setFilterTarget] = useState<string>("");
   const [filterShow, setFilterShow] = useState<boolean>(false);
-  const filterList = ["HTML", "CSS", "SCSS", "Styled-Components", "JavaScript", "TypeScript", "PHP", "React", "Electron", "Next", "Svelte", "Three", "Notion"];
 
   const onFilter = (target: string) => {
     if (target === filterTarget) setFilterData([...data]);
@@ -57,7 +58,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
               필터
             </button>
           </div>
-          <FilterBox filterList={filterList} filterTarget={filterTarget} onFilter={onFilter} />
+          <FilterBox icons={icons} filterTarget={filterTarget} onFilter={onFilter} />
         </div>
         <div className="portfolio-inner-wrapper">
           {filterData.map((value, index) => (

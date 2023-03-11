@@ -59,7 +59,7 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
         </div>
         <div className="portfolio-stack-list-box">
           {value.tag.map((stack, index) => (
-            <div key={index} className={`portfolio-stack-icon ${stack.name}`}></div>
+            <div key={index} className={`portfolio-stack-icon ${stack.name}`} title={stack.name}></div>
           ))}
         </div>
         <div className="portfolio-feature-box">

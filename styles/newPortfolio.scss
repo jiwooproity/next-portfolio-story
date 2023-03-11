@@ -257,7 +257,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   &.open {
-    height: calc(50px * 13 + 22px);
+    height: calc(50px * 15 + 22px);
   }
 
   .portfolio-stack-menu-button-box {
@@ -290,7 +290,6 @@
     }
 
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
   }
 
   z-index: 1;
@@ -343,6 +342,16 @@
     background-image: url("./images/php.png");
   }
 
+  &.Node {
+    display: block;
+    background-image: url("./images/Nodejs.png");
+  }
+
+  &.Discord {
+    display: block;
+    background-image: url("./images/Discordjs.png");
+  }
+
   &.React {
     display: block;
     background-image: url("./images/react.png");
@@ -372,4 +381,6 @@
     display: block;
     background-image: url("./images/notion.png");
   }
+
+  cursor: pointer;
 }
