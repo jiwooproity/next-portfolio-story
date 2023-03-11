@@ -28,7 +28,7 @@ const FilterBox: Function = (props: FilterBoxIF): JSX.Element[] => {
 const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: GitHubResponseIF }) => {
   const [filterData, setFilterData] = useState<NotionResponseIF[]>([]);
   const [filterTarget, setFilterTarget] = useState<string>("");
-  const [filterShow, setFilterShow] = useState<boolean>(true);
+  const [filterShow, setFilterShow] = useState<boolean>(false);
   const filterList = ["HTML", "CSS", "SCSS", "Styled-Components", "JavaScript", "TypeScript", "PHP", "React", "Electron", "Next", "Svelte", "Three", "Notion"];
 
   const onFilter = (target: string) => {
@@ -52,7 +52,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
         <div className={`portfolio-stack-flex-wrapper ${filterShow ? "open" : ""}`}>
           <div className="portfolio-stack-menu-button-box">
             <button className="portfolio-stack-menu-button" onClick={onShow}>
-              Menu
+              Filter
             </button>
           </div>
           <FilterBox filterList={filterList} filterTarget={filterTarget} onFilter={onFilter} />

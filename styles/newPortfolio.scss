@@ -247,6 +247,7 @@
 
 .portfolio-stack-flex-wrapper {
   display: flex;
+  height: 22px;
   flex-direction: column;
   position: absolute;
   top: -43px;
@@ -256,7 +257,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   &.open {
-    height: 22px;
+    height: calc(50px * 13 + 22px);
   }
 
   .portfolio-stack-menu-button-box {
@@ -285,13 +286,15 @@
 
     &.active {
       transform: scale(1.1);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     }
 
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
   }
 
   z-index: 1;
+  transition: height 0.2s ease-in-out;
 }
 
 .portfolio-stack-icon {
