@@ -80,7 +80,7 @@ export async function getStaticProps() {
       tag: properties.Tag.multi_select,
       feature: properties.Feature.multi_select,
       preview: cover.file.url,
-      blurDataURL: properties.Thumbnail.files[0].file.url,
+      blurDataURL: cover.file.url,
       progress: !properties.Date.date.end,
     };
   };
