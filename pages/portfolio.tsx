@@ -49,7 +49,12 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
   return (
     <Layout center={false}>
       <div className="gradation-container">
-        <TitleBox title="포트폴리오" description={"나만의 웹 아이디어를 실현하는 공간입니다."} githubChart={true} todayGit={todayGit} />
+        <TitleBox
+          title="포트폴리오"
+          description={"나만의 웹 아이디어를 실현하는 공간이며 지금까지의 성장 과정을 담았습니다."}
+          githubChart={true}
+          todayGit={todayGit}
+        />
       </div>
       <div className="portfolio-wrapper">
         <div className={`portfolio-stack-flex-wrapper ${filterShow ? "open" : ""}`}>
@@ -104,7 +109,6 @@ export async function getStaticProps() {
 
   // Notion 데이터베이스 값 추출
   const convert = notion.results.map(convertData);
-  console.log(convert);
 
   // 금일 깃 커밋 여부 확인
   const convertGit = github.contributions.find(getTodayCommitStatus);
