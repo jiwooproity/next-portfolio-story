@@ -31,9 +31,10 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
             className={`portfolio-notion-next-image`}
             src={`${value.preview}`}
             blurDataURL={`${value.blurDataURL}`}
-            placeholder="blur"
             alt={value.title}
-            quality={35}
+            sizes={"600px"}
+            placeholder="blur"
+            quality={1}
           />
         </a>
         <div className="portfolio-notion-image-status">
