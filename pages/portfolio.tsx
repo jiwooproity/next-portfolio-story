@@ -47,8 +47,6 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
   }, [data]);
 
   useEffect(() => {
-    if (!filterShow) return;
-
     document.addEventListener("click", (e: Event) => {
       const checkElements: string[] = [
         "portfolio-stack-flex-wrapper",
