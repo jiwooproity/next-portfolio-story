@@ -17,7 +17,7 @@ interface FilterBoxIF {
 const FilterBox: Function = (props: FilterBoxIF): JSX.Element[] => {
   const { icons, filterTarget, onFilter } = props;
 
-  return icons.map((target, index) => (
+  return icons.map((target: string, index: number) => (
     <div
       key={index}
       className={`portfolio-stack-icon ${target.replace(".js", "")} ${target === filterTarget ? "active" : ""}`}
@@ -50,10 +50,14 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
     if (!filterShow) return;
 
     document.addEventListener("click", (e: Event) => {
-      const checkElements = ["portfolio-stack-flex-wrapper", "portfolio-stack-menu-button", "portfolio-stack-icon"]; // 필터 영역
+      const checkElements: string[] = [
+        "portfolio-stack-flex-wrapper",
+        "portfolio-stack-menu-button",
+        "portfolio-stack-icon",
+      ]; // 필터 영역
 
       const target = e.target as HTMLElement;
-      const eventTarget = target.className.split(" ")[0];
+      const eventTarget: string = target.className.split(" ")[0];
 
       if (!checkElements.includes(eventTarget)) setFilterShow(false);
     });
