@@ -34,7 +34,7 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
             alt={value.title}
             sizes={"600px"}
             placeholder="blur"
-            quality={1}
+            quality={50}
           />
         </a>
         <div className="portfolio-notion-image-status">
@@ -47,7 +47,10 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
           {value.title}
           <div className="portfolio-notion-switch-wrapper ">
             <span className="portfolio-notion-develop-status">IN-PROGRESS</span>
-            <div className={`portfolio-notion-develop-switch ${progressStatus ? "on-switch" : "off-switch"}`} title={progressStatus ? "개발 중" : "배포 중"}>
+            <div
+              className={`portfolio-notion-develop-switch ${progressStatus ? "on-switch" : "off-switch"}`}
+              title={progressStatus ? "개발 중" : "배포 중"}
+            >
               <div className={`portfolio-notion-switch-button ${progressStatus ? "on" : "off"}`}></div>
             </div>
           </div>
@@ -60,7 +63,11 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
         </div>
         <div className="portfolio-stack-list-box">
           {value.tag.map((stack, index) => (
-            <div key={index} className={`portfolio-stack-icon ${stack.name.replace(".js", "")}`} title={stack.name}></div>
+            <div
+              key={index}
+              className={`portfolio-stack-icon ${stack.name.replace(".js", "")}`}
+              title={stack.name}
+            ></div>
           ))}
         </div>
         <div className="portfolio-feature-box">
