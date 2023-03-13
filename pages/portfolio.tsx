@@ -46,6 +46,19 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
     setFilterData(data);
   }, [data]);
 
+  useEffect(() => {
+    if (!filterShow) return;
+
+    document.addEventListener("click", (e: Event) => {
+      const checkElements = ["portfolio-stack-flex-wrapper", "portfolio-stack-menu-button", "portfolio-stack-icon"]; // 필터 영역
+
+      const target = e.target as HTMLElement;
+      const eventTarget = target.className.split(" ")[0];
+
+      if (!checkElements.includes(eventTarget)) setFilterShow(false);
+    });
+  }, []);
+
   return (
     <Layout center={false}>
       <div className="gradation-container">
@@ -57,7 +70,7 @@ const Portfolio = ({ data, todayGit }: { data: NotionResponseIF[]; todayGit: Git
         />
       </div>
       <div className="portfolio-wrapper">
-        <div className={`portfolio-stack-flex-wrapper ${filterShow ? "open" : ""}`}>
+        <div id="filter-box" className={`portfolio-stack-flex-wrapper ${filterShow ? "open" : ""}`}>
           <div className="portfolio-stack-menu-button-box">
             <button className="portfolio-stack-menu-button" onClick={onShow}>
               필터
@@ -105,7 +118,10 @@ export async function getStaticProps() {
   const data: RequestNotionListIF = { page_size: 15, sorts: [{ property: "Date", direction: "descending" }] };
   const params: RequestGithubIF = { y: "2023" };
   // 1: Notion 데이터 호출 / 2: GitHub 데이터 호출
-  const [{ data: notion }, { data: github }] = await Promise.all([API.getNotionList({ data }), API.getGithubHistory({ params })]);
+  const [{ data: notion }, { data: github }] = await Promise.all([
+    API.getNotionList({ data }),
+    API.getGithubHistory({ params }),
+  ]);
 
   // Notion 데이터베이스 값 추출
   const convert = notion.results.map(convertData);

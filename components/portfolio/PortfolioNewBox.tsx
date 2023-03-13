@@ -34,7 +34,7 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
             alt={value.title}
             sizes={"600px"}
             placeholder="blur"
-            quality={50}
+            quality={100}
           />
         </a>
         <div className="portfolio-notion-image-status">
