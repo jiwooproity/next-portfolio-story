@@ -1,7 +1,7 @@
 {
   "name": "next-portfolio-story",
   "version": "0.1.0",
-  "homepage": "/home",
+  "homepage": "/",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3003",
