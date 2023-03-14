@@ -94,7 +94,6 @@ export async function getStaticProps() {
   const convertData = ({ properties, cover }: any) => {
     return {
       title: properties.Title.title[0].text.content,
-      background: properties.Background.rich_text[0].text.content,
       description: properties.Description.rich_text[0].text.content,
       domain: properties.Domain.url,
       github: properties.GitHub.url,

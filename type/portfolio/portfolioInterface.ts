@@ -6,7 +6,6 @@ export interface TagIF {
 
 export interface NotionResponseIF {
   title: string;
-  background: string;
   domain: string;
   preview: string;
   // thumbnail: string;
