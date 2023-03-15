@@ -141,7 +141,7 @@ export async function getStaticProps() {
       data: sendRes,
       todayGit: convertGit,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }
 
