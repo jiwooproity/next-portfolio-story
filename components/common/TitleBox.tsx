@@ -15,7 +15,13 @@ const GitChart: Function = ({ todayGit }: { todayGit: GitHubResponseIF }): JSX.E
     <div className="title-gitchart-wrapper">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="title-gitchart-image-wrapper">
-        <Image src="https://ghchart.rshah.org/219138/jiwooproity.svg" width={663} height={104} alt="" />
+        <Image
+          src="https://ghchart.rshah.org/219138/jiwooproity.svg"
+          width={663}
+          height={104}
+          alt=""
+          unoptimized={true}
+        />
         <span className={`title-gitchart-commit-status ${count > 0 ? "complete" : "not-complete"}`}>{`1일 1커밋 ${
           count > 0 ? "완료" : "미완료"
         }`}</span>

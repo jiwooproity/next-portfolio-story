@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "www.notion.so",
-      "notion.so",
-      "images.unsplash.com",
-      "s3.us-west-2.amazonaws.com",
-      "s3.us-west-2.amazonaws.com/secure.notion-static.com",
-      "ghchart.rshah.org",
-    ],
-    format: ["image/png", "image/webp", "image/jpeg", "image/gif"],
+    unoptimized: true,
     path: "/_next/image",
     loader: "default",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   reactStrictMode: true,
 };

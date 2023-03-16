@@ -9,7 +9,7 @@ export interface NotionResponseIF {
   domain: string;
   preview: string;
   // thumbnail: string;
-  blurDataURL: string;
+  // blurDataURL: string;
   description: string;
   created: string;
   ended: string;

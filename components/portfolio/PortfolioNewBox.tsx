@@ -26,17 +26,18 @@ const PortfolioNewBox = ({ value, index }: { value: NotionResponseIF; index: num
     <div className="portfolio-notion-box">
       <div className="portfolio-notion-image">
         <a href={value.domain} target="_blank" rel="noreferrer" title="포트폴리오 보러가기">
-          <Image
-            width={600}
-            height={338}
-            className={`portfolio-notion-next-image`}
-            src={`${value.preview}`}
-            blurDataURL={`${value.blurDataURL}`}
-            alt={value.title}
-            sizes={"600px"}
-            placeholder="blur"
-            quality={100}
-          />
+          <span className={`portfolio-notion-next-image`}>
+            <Image
+              width={600}
+              height={338}
+              src={`${value.preview}`}
+              // blurDataURL={`${value.blurDataURL}`}
+              alt={value.title}
+              // sizes={"600px"}
+              unoptimized={true}
+              style={{ objectFit: "cover" }}
+            />
+          </span>
         </a>
         <div className="portfolio-notion-image-status">
           <div className="portfolio-notion-image-title">{value.title}</div>

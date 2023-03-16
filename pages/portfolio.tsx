@@ -102,7 +102,7 @@ export async function getStaticProps() {
       tag: properties.Tag.multi_select,
       feature: properties.Feature.multi_select,
       preview: cover.file.url,
-      blurDataURL: cover.file.url,
+      // blurDataURL: cover.file.url,
       progress: !properties.Date.date.end,
     };
   };
@@ -111,9 +111,9 @@ export async function getStaticProps() {
     return moment(new Date()).format("YYYY-MM-DD") === moment(value.date).format("YYYY-MM-DD");
   };
 
-  const getImages = ({ blurDataURL }: any) => {
-    return String(blurDataURL);
-  };
+  // const getImages = ({ blurDataURL }: any) => {
+  //   return String(blurDataURL);
+  // };
 
   // 파라미터 작성
   const data: RequestNotionListIF = { page_size: 15, sorts: [{ property: "Date", direction: "descending" }] };
@@ -131,14 +131,14 @@ export async function getStaticProps() {
   const convertGit = github.contributions.find(getTodayCommitStatus);
 
   // Blur 처리를 위한 Base64 Image 변환 ( for Next/Image )
-  const blurDataUrls = await CONVERT_IMAGE.MULTIE({ imageUrls: convert.map(getImages) });
-  const sendRes = convert.map((data: NotionResponseIF, index: number) => {
-    return { ...data, blurDataURL: blurDataUrls[index] };
-  });
+  // const blurDataUrls = await CONVERT_IMAGE.MULTIE({ imageUrls: convert.map(getImages) });
+  // const sendRes = convert.map((data: NotionResponseIF, index: number) => {
+  //   return { ...data, blurDataURL: blurDataUrls[index] };
+  // });
 
   return {
     props: {
-      data: sendRes,
+      data: convert,
       todayGit: convertGit,
     },
     revalidate: 60,
